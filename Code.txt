@@ -1,0 +1,49 @@
+CREATE TABLE [Courses] (
+  [Course_ID] INT NOT NULL,
+  [Name] VARCHAR(50),
+  [Lecture_Name] VARCHAR(50),
+  [Teacher_ID] INT NOT NULL,
+  [Book_Name] VARCHAR(50),
+  PRIMARY KEY ([Course_ID])
+);
+
+CREATE INDEX [FK] ON  [Courses] ([Teacher_ID]);
+
+CREATE TABLE [School] (
+  [School_ID] INT NOT NULL,
+  [Name] VARCHAR(50),
+  [Department] VARCHAR(50),
+  PRIMARY KEY ([School_ID])
+);
+
+CREATE INDEX [FK] ON  [School] ([Department]);
+
+CREATE TABLE [Departments] (
+  [Department_ID] INT NOT NULL,
+  [Course_ID] INT NOT NNULL,
+  [Teacher_ID] INT NOT NULL,
+  PRIMARY KEY ([Department_ID])
+);
+
+CREATE INDEX [FK] ON  [Departments] ([Course_ID], [Teacher_ID]);
+
+CREATE TABLE [Teachers] (
+  [Teacher_ID] INT NOT NULL,
+  [First_Name] VARCHAR(50),
+  [Last_Name] VARCHAR(50),
+  [Specialization] VARCHAR(50),
+  PRIMARY KEY ([Teacher_ID])
+);
+
+CREATE TABLE [Students] (
+  [Student_ID] INT NOT NULL,
+  [First_Name] VARCHAR(50),
+  [Last_Name] VARCHAR(50),
+  [Year] INT NOT NULL,
+  [Department_ID] VARCHAR(50),
+  [Level] INT NOT NULL,
+  [Age] INT NOT NULL,
+  PRIMARY KEY ([Student_ID])
+);
+
+CREATE INDEX [FK] ON  [Students] ([Department_ID]);
