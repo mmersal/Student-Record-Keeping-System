@@ -1,0 +1,158 @@
+1. How to calculate average Age of Students?
+SELECT AVG(Age) AS AverageAge FROM Students;
+2. how to get maxmim Age?
+SELECT MAX(Age) AS LargestAge 
+FROM Students;
+3.how to get minmam Age?
+SELECT MIN(Age) AS SmallestStudent 
+FROM Students;
+4.how to count the Students?
+SELECT COUNT(Student_ID) AS NumberOfProducts 
+FROM Students;
+5.how to calculte total Age of Student?
+SELECT SUM(Age) AS TotalItemsOrdered 
+FROM Student;
+6.how to check Books is null or not?
+SELECT ISNULL(NULL, 'Books');
+7.how to get data base user name?
+SELECT USER_NAME();
+8.Tests whether the expression is numeric or not?
+SELECT ISNUMERIC(Student_ID);
+
+9.how Replaces a substring within a string, with another substring, a specified number of times?
+SELECT Replace("My name is Willy Wonka", "i", "a") AS ReplaceString;
+
+10.how to know student First_Name?
+SELECT First_Name, Date() AS CurrentDate
+FROM Students;
+11* Write an SQL query to fetch “First_Name” from Drivers table using the alias name as <First_Name>
+
+Select FirstName AS TeacherName from Teachers;
+
+12* Write an SQL query to fetch “First_Name” from Drivers table in upper case.
+
+Select upper(First_Name) from Teachers;
+
+13* Write an SQL query to fetch unique values of DEPARTMENT from Students table.
+
+Select distinct Department_ID from Students;
+
+15* Write an SQL query to find the position of the alphabet (‘a’) in the First_Name column ‘Amitabh’ from Students table.
+
+Select INSTR(FIRST_NAME, BINARY'a') from Drivers where First_Name = 'Amitabh';
+
+16* Write an SQL query to print the First_Name from Students table after removing white spaces from the right side.
+
+Select RTRIM(First_Name) from Students;
+
+17* Write an SQL query to print the Name from Faculty table after removing white spaces from the left side.
+
+Select LTRIM(Name) from Faculty;
+
+18* Write an SQL query that fetches the unique values of Direcction from Lines table and prints its length.
+Select distinct length(Direcction) from Lines;
+
+19* Write an SQL query to print the First_Name from Driver table after replacing ‘a’ with ‘A’.
+
+Select REPLACE(First_Name,'a','A') from Students;
+
+20* Write an SQL query to Managers details for Manager with the f name as “Vipul” ” from Managers table.?
+
+Select * from Students where Name in ('Vipul');
+
+
+
+select statments
+
+-- 5 insert statment
+
+INSERT INTO Students VALUES
+(1,'Lotfy ','shawky',2,'is',2,18),
+(2,'Saad','fathy',3,'it',3,19),
+(3,'Tarek','omar',4,'cs',2,20);
+INSERT INTO Teachers VALUES
+(1,'ahmed','mohamed',CSI),
+(2,'ali',ali,FKM);
+
+
+
+
+	
+
+-- 3 select using subquery
+
+
+SELECT * 
+   FROM Teachers 
+   WHERE Teacher_ID IN (SELECT Teacher_ID
+         FROM Teachers 
+         WHERE Teacher_ID = 1) ;
+
+SELECT * 
+   FROM Teachers 
+   WHERE Teacher_ID IN (SELECT Teacher_ID
+         FROM Teachers 
+         WHERE Teacher_ID = 1) ;
+
+SELECT * 
+   FROM Students 
+   WHERE First_Name IN (SELECT First_Name
+         FROM Students 
+         WHERE First_Name = 'revoo') ;
+
+
+
+
+
+
+
+-- 2 select statments using count and group functions
+
+SELECT Teacher_ID, COUNT(*)  'count'
+FROM Teachers 
+GROUP BY MedicinType;
+
+SELECT Department_ID, COUNT(*) 'count'
+FROM Departments 
+GROUP BY Departments;
+
+
+
+
+
+
+-- 5 update statments
+
+UPDATE Students
+SET First_Name = 'reno'
+WHERE Student_ID = 1;
+
+UPDATE Students
+SET Last_Name = 'kinakom'
+WHERE Student_ID = 2;
+
+UPDATE Teachers
+SET DOB = CSI
+WHERE Teacher_ID = 3;
+
+UPDATE Teacherss
+SET First_name = 'Naguib'
+WHERE Teachers_ID = 1;
+
+UPDATE Faculties
+SET Name = 'commerce' 
+WHERE Faculty_ID = 2;
+
+
+
+
+
+
+-- 5 delete statments
+
+DELETE FROM Students WHERE Student_ID= 1;
+DELETE FROM Students WHERE Student_ID= 2;
+DELETE FROM Students WHERE Student_ID= 3;
+DELETE FROM Teachers WHERE Teacher_ID= 1;
+DELETE FROM Teachers WHERE Teacher_ID= 2;
+
